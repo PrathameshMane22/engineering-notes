@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+int main() {
+    const int MAX_SIZE = 100;
+    
+    // Input the size of the first signal
+    int n1;
+    printf("Enter the number of discrete points in the first signal (n1): ");
+    scanf("%d", &n1);
+
+    // Declare array to hold the first signal
+    double x[MAX_SIZE];
+    
+    // Input the first signal
+    printf("Enter the first signal (x): ");
+    for (int i = 0; i < n1; ++i) {
+        scanf("%lf", &x[i]);
+    }
+
+    // Input the size of the second signal
+    int n2;
+    printf("Enter the number of discrete points in the second signal (n2): ");
+    scanf("%d", &n2);
+
+    // Declare array to hold the second signal
+    double y[MAX_SIZE];
+    
+    // Input the second signal
+    printf("Enter the second signal (y): ");
+    for (int i = 0; i < n2; ++i) {
+        scanf("%lf", &y[i]);
+    }
+
+    // Compute the correlation
+    int result_length = n1 + n2 - 1;
+    double correlation[MAX_SIZE * 2 - 1] = {0};
+
+    for (int k = -(n2 - 1); k < n1; ++k) {
+        double sum = 0;
+        for (int i = 0; i < n1; ++i) {
+            int j = i - k;
+            if (j >= 0 && j < n2) {
+                sum += x[i] * y[j];
+            }
+        }
+        correlation[k + (n2 - 1)] = sum;
+    }
+
+    // Find the maximum value in the correlation array
+    double max_correlation = correlation[0];
+    for (int i = 1; i < result_length; ++i) {
+        if (correlation[i] > max_correlation) {
+            max_correlation = correlation[i];
+        }
+    }
+
+    // Output the correlation and the maximum value
+    printf("\nCorrelation result y[n]: \n");
+    for (int i = 0; i < result_length; ++i) {
+        printf("%.2f   ", correlation[i]);
+    }
+    printf("\n");
+
+    printf("\nMaximum correlation value: %.2f\n", max_correlation);
+    printf("Hence n=0 is at : %.2f\n", max_correlation);
+    
+    return 0;
+}
