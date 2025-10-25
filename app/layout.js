@@ -2,7 +2,7 @@ import './globals.css'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'My Engineering Notes',
+  title: 'Prathamesh Engineering Notes',
   description: 'Personal collection of engineering notes and resources',
 }
 
