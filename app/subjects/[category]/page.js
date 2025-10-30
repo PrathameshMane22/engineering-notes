@@ -1,6 +1,4 @@
-// This page will handle display of PDFs for ANY subject/category dynamically
-
-// You can create a mapping of PDFs for quick start. Later you can load from a JSON file if needed!
+// app/subjects/[subject]/[category]/page.js
 
 const pdfMap = {
   dsp: {
@@ -22,13 +20,13 @@ const pdfMap = {
     notes: [],
     books: []
   },
-  // Add other subjects here!
+  // Add more subjects and categories as you grow!
 };
 
 export default function CategoryPage({ params }) {
+  // Destructure params (Next.js 14+/App Router)
   const { subject, category } = params;
 
-  // Defensive check
   const pdfList =
     pdfMap[subject] && pdfMap[subject][category]
       ? pdfMap[subject][category]
