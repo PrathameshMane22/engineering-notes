@@ -3,9 +3,8 @@
 const pdfMap = {
   dsp: {
     expt: [
-      { file: "experiment-1.pdf", label: "Experiment 1: Sampling Theorem" },
-      { file: "experiment-2.pdf", label: "Experiment 2: FFT Analysis" }
-    ],
+      { file: "DSP_EXPT_1_MANE_078_B1.pdf", label: "Experiment 1: Sampling Theorem" },
+         ],
     notes: [
       { file: "note-1.pdf", label: "DSP Unit 1 Notes" }
     ],
